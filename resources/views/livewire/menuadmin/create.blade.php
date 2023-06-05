@@ -13,7 +13,7 @@
                     <input wire:model="nombreDepartamento" type="text" class="form-control" id="nombreDepartamento" placeholder="nombreDepartamento">@error('nombreDepartamento') <span class="error text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group">
-                    <label for="nombreComercial">Edificio que pertenece</label>
+                    <label for="nombreComercial">Edificio en el que pertenece</label>
                     <select wire:model="nombreEdificio" id="nombreEdificio" class="form-control">
                         <option value="">Seleccione una opcion</option>
                         @foreach($edificios as $edificio)
