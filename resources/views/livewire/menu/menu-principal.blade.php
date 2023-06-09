@@ -13,43 +13,29 @@
 						<div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;"> {{ session('message') }} </div>
 						@endif
 						<div>
-							<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="Buscar Departamento">
+							<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="Buscar">
 						</div>
 					</div>
 				</div>
-
-				<div class="card-body">
-				<div class="table-responsive">
-					<table class="table table-bordered table-sm">
-						<thead class="thead">
-							<tr>
-								<th>Id</th>
-								<th>Nombre departamento</th>
-
-								<th>Encargado</th>
-								<th>Puesto</th>
-
-								<td>Acciones</td>
-							</tr>
-						</thead>
-						<tbody>
-                            @foreach($departamentos as $row)
-							<tr>
-							    <td>{{ $row->id }}</td>
-								<td>{{$row->nombreDepartamento}}</td>
-								<td>{{$row->encargado}}</td>
-                                <td>{{$row->puestoTrabajo}}</td>
-								<td width="90">
-                                    <button class="btn btn-info" wire:click="showMap({{$row->idedificio_fk}})"></i>Ubicar</button>
-                                    <a class="btn btn-secondary" href="{{route('mapaprincipal.show', $row->id)}}"></i>Ver mas</a>
-								</td>
-                                @endforeach
-						</tbody>
-					</table>
-					</div>
-                    {{ $departamentos->links() }}
-				</div>
 			</div>
+            <div class="row justify-content-center mt-12">
+                @foreach($departamentos as $row)
+                    <div class="col-lg-12">
+                        <div class="card" style="margin-bottom: 20px; height: auto;">
+                            <div class="card-body">
+                                <button class="btn btn-link mx-auto" wire:click="showMap({{$row->idedificio_fk}})">
+                                    <h6 class="card-title">{{$row->nombreDepartamento}}</h6>
+                                </button>
+                                    <p>{{$row->encargado}}</p>
+                                    <p>{{$row->puestoTrabajo}}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="mt-4 p-4 w-full">
+                    {{ $departamentos->links() }}
+            </div>
 		</div>
 	</div>
 </div>

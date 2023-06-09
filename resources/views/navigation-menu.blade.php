@@ -16,9 +16,9 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link href="{{ url('/menuprincipal') }}">{{ __('Menu Busqueda') }}</x-nav-link>
-                    @if(@Auth::user()->hasRole('admin'))
+
                         <x-nav-link href="{{ url('/menuadmin') }}">{{ __('Administrar departamentos') }}</x-nav-link>
-                    @endif
+
                 </div>
             </div>
 

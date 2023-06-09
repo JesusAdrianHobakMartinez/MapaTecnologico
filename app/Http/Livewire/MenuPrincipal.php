@@ -25,7 +25,7 @@ class MenuPrincipal extends Component
         ->orWhere('encargado', 'LIKE', $keyWord)
         ->orWhere('puestoTrabajo', 'LIKE', $keyWord)
         ->orWhere('correo', 'LIKE', $keyWord)
-        ->paginate(7)]);
+        ->simplePaginate(3)]);
     }
     public function showMap($id){
         $imgedificio = $id;

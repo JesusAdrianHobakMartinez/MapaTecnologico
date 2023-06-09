@@ -26,7 +26,7 @@ class MenuAdmin extends Component
         ->orWhere('encargado', 'LIKE', $keyWord)
         ->orWhere('puestoTrabajo', 'LIKE', $keyWord)
         ->orWhere('correo', 'LIKE', $keyWord)
-        ->paginate(10),'edificios'=>$edificios]);
+        ->paginate(12),'edificios'=>$edificios]);
         dd($edificios);
     }
     public function create(){

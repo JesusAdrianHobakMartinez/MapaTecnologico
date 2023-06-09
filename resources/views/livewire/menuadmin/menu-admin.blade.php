@@ -30,36 +30,29 @@
                             @include('livewire.menuadmin.create')
                         @endif
                     @endif
-				<div class="table-responsive">
-					<table class="table table-bordered table-sm">
-                        <thead class="thead">
-							<tr>
-								<th>Id</th>
-								<th>Nombre departamento</th>
-								<th>Encargado</th>
-								<th>Puesto</th>
-								<td>Acciones</td>
-							</tr>
-						</thead>
-						<tbody>
-                            @foreach($departamentos as $row)
-							<tr>
-							    <td>{{ $row->id }}</td>
-								<td>{{$row->nombreDepartamento}}</td>
-								<td>{{$row->encargado}}</td>
-                                <td>{{$row->puestoTrabajo}}</td>
-								<td width="300">
-								    <a class="btn btn-success" href="{{route('menuadmin.show', $row->id)}}"></i>Ver</button>
-                                    <a class="btn btn-warning" wire:click="edit({{$row->id}})"></i>Editar</a>
-                                    <a class="btn btn-danger" onclick="confirm('Confirma eliminar departamento: {{ucwords(strtolower($row->nombreDepartamento))}}?')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"> Eliminar </a>
-								</td>
-                                @endforeach
-						</tbody>
-					</table>
-					{{ $departamentos->links() }}
-					</div>
-				</div>
+
+                </div>
 			</div>
+            <div class="row justify-content-center mt-12">
+                @foreach($departamentos as $row)
+                    <div class="col-lg-3">
+                        <div class="card" style="margin-bottom: 20px; height: auto;">
+                            <div class="card-body">
+                                <a  href="{{route('menuadmin.show', $row->id)}}">
+                                    <h6 class="card-title">{{$row->nombreDepartamento}}</h6>
+                                </a>
+                                    <p>{{$row->encargado}}</p>
+                                    <p>{{$row->puestoTrabajo}}</p>
+                                    <a class="btn btn-secondary" wire:click="edit({{$row->id}})"></i>Editar</a>
+                                    <a class="btn btn-info" onclick="confirm('Confirma eliminar departamento: {{ucwords(strtolower($row->nombreDepartamento))}}?')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"> Eliminar </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="mt-4 p-4 w-48">
+                    {{ $departamentos->links() }}
+            </div>
 		</div>
 	</div>
 </div>
